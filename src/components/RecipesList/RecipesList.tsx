@@ -1,16 +1,24 @@
-import { TRecipe } from "../../types/types";
+import { useEffect } from "react";
+import useBeerStore from "../../store/beerStore";
+
 import RecipeItem from "../RecipeItem/RecipeItem";
 import * as Styled from "./RecipesList.styled";
 
-interface IProps {
-  recipes: TRecipe[];
-}
-export default function RecipesList({ recipes }: IProps) {
+export default function RecipesList() {
+  const { addRecipes, recipes } = useBeerStore();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await addRecipes();
+    };
+    fetchData();
+  }, [addRecipes]);
   return (
     <Styled.RecipesList>
-      {recipes.slice(0, 15).map((recipe) => (
-        <RecipeItem recipe={recipe} key={recipe.id} />
-      ))}
+      {recipes.length !== 0 &&
+        recipes
+          .slice(0, 15)
+          .map((recipe) => <RecipeItem recipe={recipe} key={recipe.id} />)}
     </Styled.RecipesList>
   );
 }
