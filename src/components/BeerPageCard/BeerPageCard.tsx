@@ -1,5 +1,5 @@
 import { TRecipe } from "../../types/types";
-import * as Styled from "./BeerPAgeCard.styled";
+import * as Styled from "./BeerPageCard.styled";
 interface IProps {
   recipe: TRecipe;
 }
