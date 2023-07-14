@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/airo-medical/static/js/main.9a9b9e0e.js",
+    "main.js": "/airo-medical/static/js/main.4ed49d82.js",
     "static/js/787.0dda6938.chunk.js": "/airo-medical/static/js/787.0dda6938.chunk.js",
     "index.html": "/airo-medical/index.html",
-    "main.9a9b9e0e.js.map": "/airo-medical/static/js/main.9a9b9e0e.js.map",
+    "main.4ed49d82.js.map": "/airo-medical/static/js/main.4ed49d82.js.map",
     "787.0dda6938.chunk.js.map": "/airo-medical/static/js/787.0dda6938.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.9a9b9e0e.js"
+    "static/js/main.4ed49d82.js"
   ]
 }
