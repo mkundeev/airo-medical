@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { customGlobalStyles } from "./globalStyles";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
@@ -8,12 +8,15 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+const router = createHashRouter([
+  {
+    path: "/*",
+    element: <App />,
+  },
+]);
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/airo-medical">
-      {customGlobalStyles}
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
