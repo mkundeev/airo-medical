@@ -3,12 +3,14 @@ import useBeerStore from "../../store/beerStore";
 import RecipeItem from "../RecipeItem/RecipeItem";
 
 import * as Styled from "./RecipesList.styled";
+import { Navigate } from "react-router-dom";
 
 export default function RecipesList() {
-  const { recipes, infinityScroll } = useBeerStore();
+  const { recipes, infinityScroll, error } = useBeerStore();
 
   return (
     <>
+      {error && <Navigate to="/error" />}
       <Styled.RecipesList>
         {recipes.length !== 0 &&
           recipes
