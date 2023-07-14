@@ -1,7 +1,10 @@
 export type TStore = {
   recipes: TRecipe[];
   page: number;
+  increasePage: () => void;
   addRecipes: () => Promise<void>;
+  deleteFirstFive: () => void;
+  infinityScroll: () => void;
   removeRecipes: (arrayIds: number[]) => void;
 };
 

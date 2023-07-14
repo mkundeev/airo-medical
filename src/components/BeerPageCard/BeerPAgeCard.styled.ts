@@ -17,3 +17,18 @@ export const Content = styled("div")`
 export const Bold = styled("span")`
   font-weight: 700;
 `;
+
+export const Table = styled("table")`
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid;
+  th,
+  td {
+    border: 1px solid;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  td:not(:first-of-type) {
+    text-align: center;
+  }
+`;

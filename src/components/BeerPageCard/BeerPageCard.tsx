@@ -22,46 +22,42 @@ export default function BeerPageCard({ recipe }: IProps) {
           <span>{recipe.first_brewed}</span>
         </p>
 
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Malt name</th>
-                <th>Amount</th>
+        <Styled.Table>
+          <thead>
+            <tr>
+              <th>Malt name</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recipe.ingredients.malt.map((malt, index) => (
+              <tr key={index}>
+                <td>{malt.name}</td>
+                <td>{`${malt.amount.value} ${malt.amount.unit}`}</td>
               </tr>
-            </thead>
-            <tbody>
-              {recipe.ingredients.malt.map((malt, index) => (
-                <tr key={index}>
-                  <td>{malt.name}</td>
-                  <td>{`${malt.amount.value} ${malt.amount.unit}`}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Hop name</th>
-                <th>Amount</th>
-                <th>When to add</th>
-                <th>Atribute</th>
+            ))}
+          </tbody>
+        </Styled.Table>
+        <Styled.Table>
+          <thead>
+            <tr>
+              <th>Hop name</th>
+              <th>Amount</th>
+              <th>When to add</th>
+              <th>Atribute</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recipe.ingredients.hops.map((hop, index) => (
+              <tr key={index}>
+                <td>{hop.name}</td>
+                <td>{`${hop.amount.value} ${hop.amount.unit}`}</td>
+                <td>{hop.add}</td>
+                <td>{hop.attribute}</td>
               </tr>
-            </thead>
-            <tbody>
-              {recipe.ingredients.hops.map((hop, index) => (
-                <tr key={index}>
-                  <td>{hop.name}</td>
-                  <td>{`${hop.amount.value} ${hop.amount.unit}`}</td>
-                  <td>{hop.add}</td>
-                  <td>{hop.attribute}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </Styled.Table>
         <div>
           <Styled.Bold>Food paring:</Styled.Bold>
           <ul>
