@@ -9,8 +9,6 @@ export const customGlobalStyles = (
       body: {
         padding: 0,
         margin: 0,
-        overflowX: "hidden",
-        boxSizing: "border-box",
       },
       a: {
         textDecoration: "none",
