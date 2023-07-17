@@ -2,6 +2,7 @@ export type TStore = {
   recipes: TRecipe[];
   page: number;
   error: string | null;
+  isLoading: boolean;
   increasePage: () => void;
   addRecipes: () => Promise<void>;
   deleteFirstFive: () => void;

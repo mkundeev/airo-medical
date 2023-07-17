@@ -6,7 +6,7 @@ import * as Styled from "./RecipesList.styled";
 import { Navigate } from "react-router-dom";
 
 export default function RecipesList() {
-  const { recipes, infinityScroll, error } = useBeerStore();
+  const { recipes, infinityScroll, error, isLoading } = useBeerStore();
 
   return (
     <>
@@ -17,6 +17,7 @@ export default function RecipesList() {
             .slice(0, 15)
             .map((recipe) => <RecipeItem recipe={recipe} key={recipe.id} />)}
       </Styled.RecipesList>
+      {isLoading && <Styled.Loader />}
       <InView
         as="div"
         style={{ marginTop: "100px" }}

@@ -1,23 +1,27 @@
 import { create } from "zustand";
 import { TStore } from "../types/types";
 import { getRecipes } from "../services/beerServices";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 
 const useBeerStore = create<TStore>((set, get) => ({
   recipes: [],
   page: 1,
   error: null,
+  isLoading: false,
   increasePage: () => {
     set((state) => ({ page: state.page + 1 }));
   },
   addRecipes: async () => {
     const page = get().page;
     try {
+      set(() => ({ isLoading: true }));
       const { data } = await getRecipes(page);
       set((state) => ({ recipes: [...state.recipes, ...data] }));
     } catch (err) {
       const error = err as AxiosError;
       set(() => ({ error: error.message }));
+    } finally {
+      set(() => ({ isLoading: false }));
     }
   },
   deleteFirstFive: () => {
